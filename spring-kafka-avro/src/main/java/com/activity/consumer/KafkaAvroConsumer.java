@@ -26,14 +26,14 @@ public class KafkaAvroConsumer {
         log.info("Avro message received for key : " + key + " value : " + employee.toString());
         log.info("Avro message received first name : "+ employee.getFirstName());
 
-        if(employee.getFirstName().equals("*")){
+        if(employee.getFirstName().toString().equalsIgnoreCase("*")){
             firstNameService.callService("*");
         }else {
-            if (employee.getFirstName().equals("Basant")) {
+            if (employee.getFirstName().toString().equalsIgnoreCase("Basant")) {
                 firstNameService.callService("Basant");
-            } else if (employee.getFirstName().equals("James")) {
+            } else if (employee.getFirstName().toString().equalsIgnoreCase("James")) {
                 firstNameService.callService("James");
-            } else if (employee.getFirstName().equals("Kent")) {
+            } else if (employee.getFirstName().toString().equalsIgnoreCase("Kent")) {
                 firstNameService.callService("Kent");
             }
         }
